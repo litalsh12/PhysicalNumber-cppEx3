@@ -67,7 +67,7 @@ int main() {
     .setname("Compatible dimensions")
     .CHECK_OUTPUT(km-m, "6.5[km]")
     .CHECK_OUTPUT(km+km , "14[km]")
-    .CHECK_OUTPUT(m+cm , ""
+   // .CHECK_OUTPUT(m+cm , "")
     .CHECK_OUTPUT((m-=km), "-6500[m]")
     .CHECK_EQUAL (m==km, false)
     .CHECK_EQUAL (m<km, true)
