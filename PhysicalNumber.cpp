@@ -10,6 +10,8 @@ using ariel::PhysicalNumber, ariel::Unit;
      this->num=n;
      this->_unit=_unit;
      }
+     ariel::PhysicalNumber::~PhysicalNumber(){
+    }
      PhysicalNumber ariel::operator+(const PhysicalNumber& left,const PhysicalNumber& right){
        return      PhysicalNumber(0,ariel::KG);
      }
@@ -63,16 +65,5 @@ using ariel::PhysicalNumber, ariel::Unit;
      ostream& ariel::operator<<(ostream & os,const PhysicalNumber& f){
        return      os;
     }
-     Unit getUnit(){
-       return      ariel::KG;
-     }
-     double getNumber(){
-       return 0;
-     }
-     double setNumber(double number){
-       return -1;
-     }
-     string getStringUnit(const PhysicalNumber& num){
-       return "t";
-     }
+  
 

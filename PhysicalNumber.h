@@ -12,7 +12,7 @@ class PhysicalNumber{
   
   public:
      PhysicalNumber(double n,Unit _unit);
-    // ~PhysicalNumber();
+     ~PhysicalNumber();
      //math operators
      friend PhysicalNumber operator +(const PhysicalNumber& left,const PhysicalNumber& right);
      friend PhysicalNumber operator += (PhysicalNumber& left,const PhysicalNumber& right);
@@ -34,11 +34,6 @@ class PhysicalNumber{
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
 
-     //string get_type(const PhysicalNumber& l);
-     Unit getUnit();
-     double getNumber();
-     double setNumber(double number);
-     string getStringUnit(const PhysicalNumber& num);
-     //double caster(const PhysicalNumber& l);
+    
 };
 };

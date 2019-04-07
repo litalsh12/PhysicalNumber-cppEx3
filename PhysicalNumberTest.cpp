@@ -62,15 +62,51 @@ int main() {
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//distance units
     .setname("Compatible dimensions")
     .CHECK_OUTPUT(km-m, "6.5[km]")
+    .CHECK_OUTPUT(km+km , "14[km]")
+    .CHECK_OUTPUT(m+cm , ""
     .CHECK_OUTPUT((m-=km), "-6500[m]")
     .CHECK_EQUAL (m==km, false)
     .CHECK_EQUAL (m<km, true)
     .CHECK_EQUAL (m>km, false)
     .CHECK_OUTPUT(++km, "8[km]")
     .CHECK_OUTPUT(--km, "7[km]")
-// Throws : 
+
+ //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  //time units-
+    .CHECK_OUTPUT(hour+min, "1.45[Hour]")
+    .CHECK_OUTPUT((min+=sec), "51[Min]")
+    .CHECK_OUTPUT(min, "51[Min]")
+    .CHECK_OUTPUT(++hour, "2[Hour]")
+    .CHECK_OUTPUT(min-sec, "45[Min]")
+    .CHECK_OUTPUT(--min, "50[Min]")
+    .CHECK_EQUAL (min<hour, true)
+    .CHECK_EQUAL (sec>min, false)
+    .CHECK_EQUAL (hour!=min, true)
+ //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
+    
+    //mass units-
+    .CHECK_OUTPUT(g+kg,"9000[g]")
+    .CHECK_OUTPUT(ton-kg , "19.992[ton]")
+    .CHECK_OUTPUT(ton, "20[ton]")
+    .CHECK_OUTPUT(++kg, "9[kg]")
+    .CHECK_OUTPUT(kg-g, "8[kg]")
+    .CHECK_OUTPUT(--ton, "19[ton]")
+    //.CHECK_OUTPUT(kg+=g, "10[kg]")
+    //.CHECK_OUTPUT(kg-=g, "9[kg]")
+    .CHECK_EQUAL (ton>kg, true)
+    .CHECK_EQUAL (g>kg, false)
+    .CHECK_EQUAL (ton<g, false)
+    .CHECK_EQUAL (g>kg, false)
+    .CHECK_EQUAL (ton!=g, true)
+    .CHECK_EQUAL (kg==kg, true)
+    .CHECK_EQUAL (g==kg, false)
+    
+    // Throws : 
 //Ton  - Meter @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     .CHECK_THROWS(m+ton)
     .CHECK_THROWS(m-ton)
@@ -98,7 +134,7 @@ int main() {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Ton -  CM
 
-.CHECK_THROWS(m+ton)
+    .CHECK_THROWS(m+ton)
     .CHECK_THROWS(cm-ton)
     .CHECK_THROWS(cm==ton)
     .CHECK_THROWS(cm<ton)
@@ -113,35 +149,12 @@ int main() {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //Ton - hour
 
-    .CHECK_THROWS(istringstream("200[g") >> g)
-      .CHECK_THROWS(istringstream("0.2[]") >> a)
-      .CHECK_THROWS(istringstream("200g]") >> g)
-      .CHECK_THROWS(istringstream("0.2[kg]") >> a)
+  .CHECK_THROWS(istringstream("200[g") >> m)
+  .CHECK_THROWS(istringstream("0.2[]") >> km)
+  .CHECK_THROWS(istringstream("200g]") >> km)
+  .CHECK_THROWS(istringstream("0.2[kg]") >> hour)
 
- //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&77
- //output:
-  //time units-
-    .CHECK_OUTPUT(hour+min, "1.45[Hour]")
-    .CHECK_OUTPUT((min+=sec), "51[Min]")
-    .CHECK_OUTPUT(min, "51[Min]")
-    .CHECK_OUTPUT(++hour, "2[Hour]")
-    .CHECK_OUTPUT(min-sec, "45[Min]")
-    .CHECK_OUTPUT(--min, "50[Min]")
-    .CHECK_EQUAL (min<hour, true)
-    .CHECK_EQUAL (sec>min, false)
-    //.CHECK_EQUAL (hour.getNumber()==6, false)
-    .CHECK_EQUAL (hour!=min, true)
-    //.CHECK_EQUAL (min.getNumber()<=4, false)
-    //.CHECK_EQUAL (sec.getNumber()>=1000, true)
-   // .CHECK_EQUAL (-min.getNumber() , -50)
-   // .CHECK_EQUAL (+min.getNumber(), 50)
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    //Mass units:
-
-      .CHECK_OUTPUT(g+kg,"2100[g]")
-      .CHECK_OUTPUT(ton-kg , "7.98")
-      // .CHECK_OUTPUT(kg+=g , "2.1[kg]")
-      .setname("...")
+    .setname("...")
       .print(cout, /*show_grade=*/false);
       grade = testcase.grade();
     } else {
