@@ -142,6 +142,7 @@ int main() {
     .CHECK_EQUAL (kg==kg, true)
     .CHECK_EQUAL (g==kg, false)
 
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //stream
 
@@ -155,50 +156,29 @@ int main() {
     
     // Throws : 
 .setname("Incompatible dimensions")
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//Ton  - Meter
-    .CHECK_THROWS(m+ton)
-    .CHECK_THROWS(m-ton)
-    .CHECK_THROWS(m==ton)
-    .CHECK_THROWS(m<ton)
-    .CHECK_THROWS(m>ton)
-    .CHECK_THROWS(m+=ton)
-    .CHECK_THROWS(m-=ton)
-    .CHECK_THROWS(m<=ton)
-    .CHECK_THROWS(m>=ton)
-    .CHECK_THROWS(m!=ton)
 
- //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    // Ton - km
-    .CHECK_THROWS(km+ton)
-    .CHECK_THROWS(km-ton)
-    .CHECK_THROWS(km==ton)
-    .CHECK_THROWS(km<ton)
-    .CHECK_THROWS(km>ton)
-    .CHECK_THROWS(km+=ton)
-    .CHECK_THROWS(km-=ton)
-    .CHECK_THROWS(km<=ton)
-    .CHECK_THROWS(km>=ton)
-    .CHECK_THROWS(km!=ton)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Ton -  CM
-
-    .CHECK_THROWS(m+ton)
-    .CHECK_THROWS(cm-ton)
-    .CHECK_THROWS(cm==ton)
-    .CHECK_THROWS(cm<ton)
-    .CHECK_THROWS(cm>ton)
-    .CHECK_THROWS(cm+=ton)
-    .CHECK_THROWS(cm-=ton)
-    .CHECK_THROWS(cm<=ton)
-    .CHECK_THROWS(cm>=ton)
-    .CHECK_THROWS(cm!=ton)
+.CHECK_THROWS(hour+ton)
+.CHECK_THROWS(ton+hour)
+.CHECK_THROWS(min-cm)
+.CHECK_THROWS(cm-min)
+.CHECK_THROWS(m+=sec)
+.CHECK_THROWS(sec+=m)
+.CHECK_THROWS(ton-=km)
+.CHECK_THROWS(km-=ton)
+.CHECK_THROWS(m==sec)
+.CHECK_THROWS(sec==m)
+.CHECK_THROWS(ton!=min)
+.CHECK_THROWS(min!=ton)
+.CHECK_THROWS(hour<cm)
+.CHECK_THROWS(cm<hour)
+.CHECK_THROWS(m<=g)
+.CHECK_THROWS(g<=m)
+.CHECK_THROWS(min>km)
+.CHECK_THROWS(km>min)
+.CHECK_THROWS(sec>=ton)
+.CHECK_THROWS(ton>=sec)
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//Ton - hour
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//stream
   .CHECK_THROWS(istringstream("200[g") >> m)
   .CHECK_THROWS(istringstream("0.2[]") >> km)
   .CHECK_THROWS(istringstream("200g]") >> km)
