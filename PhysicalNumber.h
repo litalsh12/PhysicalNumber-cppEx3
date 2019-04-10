@@ -14,26 +14,29 @@ class PhysicalNumber{
      PhysicalNumber(double n,Unit _unit);
      ~PhysicalNumber();
      //math operators
-     friend PhysicalNumber operator +(const PhysicalNumber& left,const PhysicalNumber& right);
-     friend PhysicalNumber operator += (PhysicalNumber& left,const PhysicalNumber& right);
-     friend PhysicalNumber operator + (PhysicalNumber& right);// plus onary (?)
-     friend PhysicalNumber operator - (PhysicalNumber& left, const PhysicalNumber& right);
-     friend PhysicalNumber operator -= (PhysicalNumber& left, const PhysicalNumber& right);
-     friend PhysicalNumber operator -(const PhysicalNumber& right);//minus onery (?)
+      PhysicalNumber operator+ (const PhysicalNumber& right);
+      PhysicalNumber operator+= (const PhysicalNumber& right);
+      PhysicalNumber operator+();// plus onary (?)
+      PhysicalNumber operator- (const PhysicalNumber& right);
+      PhysicalNumber operator-= (const PhysicalNumber& right);
+      PhysicalNumber operator-();//minus onery (?)
      //compare operators
-     friend bool operator >(const PhysicalNumber& left, const PhysicalNumber& right);
-     friend bool operator >=(const PhysicalNumber& left, const PhysicalNumber& right);
-     friend bool operator <(const PhysicalNumber& left, const PhysicalNumber& right);
-     friend bool operator <=(const PhysicalNumber& left, const PhysicalNumber& right);
-     friend bool operator ==(const PhysicalNumber& left, const PhysicalNumber& right);
-     friend bool operator !=(const PhysicalNumber& left, const PhysicalNumber& right);
+      bool operator> (const PhysicalNumber& right);
+      bool operator>= (const PhysicalNumber& right);
+      bool operator< (const PhysicalNumber& right);
+      bool operator<= (const PhysicalNumber& right);
+      bool operator== (const PhysicalNumber& right);
+      bool operator!= (const PhysicalNumber& right);
+
+      PhysicalNumber operator--();
+      PhysicalNumber operator++();
      //
-     friend PhysicalNumber operator --(PhysicalNumber& left);
-     friend PhysicalNumber operator ++(PhysicalNumber& left);
-     //
+
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
 
-    
-};
+    };
+    istream& operator >> (istream & is,PhysicalNumber& f);
+    ostream& operator<<(ostream & os,const PhysicalNumber& f);
+
 };

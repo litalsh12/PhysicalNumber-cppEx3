@@ -12,50 +12,50 @@ using ariel::PhysicalNumber, ariel::Unit;
      }
      ariel::PhysicalNumber::~PhysicalNumber(){
     }
-     PhysicalNumber ariel::operator+(const PhysicalNumber& left,const PhysicalNumber& right){
+     ariel::PhysicalNumber ariel::PhysicalNumber::operator+(const PhysicalNumber& right){
        return      PhysicalNumber(0,ariel::KG);
      }
      
-     PhysicalNumber ariel::operator+= (PhysicalNumber& left,const PhysicalNumber& right){
+     ariel::PhysicalNumber ariel::PhysicalNumber::operator+= (const PhysicalNumber& right){
        return      PhysicalNumber(0,ariel::KG);
      }
-     PhysicalNumber ariel::operator+ (PhysicalNumber& right){
+     ariel::PhysicalNumber ariel::PhysicalNumber::operator+ (){
        return      PhysicalNumber(0,ariel::KG);
      }
-     PhysicalNumber ariel::operator- (PhysicalNumber& left, const PhysicalNumber& right){
+     ariel::PhysicalNumber ariel::PhysicalNumber::operator- (const PhysicalNumber& right){
        return      PhysicalNumber(0,ariel::KG);
      }
-     PhysicalNumber ariel::operator-= (PhysicalNumber& left, const PhysicalNumber& right){
+     ariel::PhysicalNumber ariel::PhysicalNumber::operator-= (const PhysicalNumber& right){
        return      PhysicalNumber(0,ariel::KG);
      }
-     PhysicalNumber ariel::operator-(const PhysicalNumber& right){
+    ariel::PhysicalNumber ariel::PhysicalNumber::operator-(){
        return      PhysicalNumber(0,ariel::KG);
        }
        //minus onery (?)
      //compare operators
-     bool ariel::operator>(const PhysicalNumber& left, const PhysicalNumber& right){
+     bool ariel::PhysicalNumber::operator>(const PhysicalNumber& right){
        return      true;
      }
-     bool ariel::operator>=(const PhysicalNumber& left, const PhysicalNumber& right){
+     bool ariel::PhysicalNumber::operator>=(const PhysicalNumber& right){
        return      true;
      }
-     bool ariel::operator<(const PhysicalNumber& left, const PhysicalNumber& right){
+     bool ariel::PhysicalNumber::operator<(const PhysicalNumber& right){
        return      true;
      }
-     bool ariel::operator<=(const PhysicalNumber& left, const PhysicalNumber& right){
+     bool ariel::PhysicalNumber::operator<=(const PhysicalNumber& right){
        return      true;
      }
-     bool ariel::operator==(const PhysicalNumber& left, const PhysicalNumber& right){
+     bool ariel::PhysicalNumber::operator==(const PhysicalNumber& right){
        return      true;
      }
-    bool ariel::operator!=(const PhysicalNumber& left, const PhysicalNumber& right){
+    bool ariel::PhysicalNumber::operator!=(const PhysicalNumber& right){
        return      true;
      }
      //
-    PhysicalNumber ariel::operator--(PhysicalNumber& left){
+    ariel::PhysicalNumber ariel::PhysicalNumber::operator--(){
        return      PhysicalNumber(0,ariel::KG);
      }
-     PhysicalNumber ariel::operator++(PhysicalNumber& left){
+    ariel::PhysicalNumber ariel::PhysicalNumber::operator++(){
        return      PhysicalNumber(0,ariel::KG);
      }
      //
