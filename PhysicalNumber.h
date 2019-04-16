@@ -12,14 +12,15 @@ class PhysicalNumber{
   
   public:
      PhysicalNumber(double n,Unit _unit);
+     PhysicalNumber();
      ~PhysicalNumber();
      //math operators
       PhysicalNumber operator+ (const PhysicalNumber& right);
       PhysicalNumber operator+= (const PhysicalNumber& right);
-      PhysicalNumber operator+();// plus onary (?)
+      PhysicalNumber operator+();
       PhysicalNumber operator- (const PhysicalNumber& right);
       PhysicalNumber operator-= (const PhysicalNumber& right);
-      PhysicalNumber operator-();//minus onery (?)
+      PhysicalNumber operator-();
      //compare operators
       bool operator> (const PhysicalNumber& right);
       bool operator>= (const PhysicalNumber& right);
@@ -28,14 +29,32 @@ class PhysicalNumber{
       bool operator== (const PhysicalNumber& right);
       bool operator!= (const PhysicalNumber& right);
 
-      PhysicalNumber operator--();
-      PhysicalNumber operator++();
+      PhysicalNumber& operator--();
+      PhysicalNumber& operator++();
+      PhysicalNumber operator++(int); //[V]
+      PhysicalNumber operator--(int); 
+      
      //
-
+///////////////////////////////////////
+	Unit getUnit(){
+return this->_unit;
+}
+double getNum(){
+return this->num;
+}
+void setNum(double n){
+this->num=n;
+}
+void setUnit(Unit u){
+this->_unit=u;
+}
+      friend bool theSameDim(Unit a,Unit b);
+///////////////////////////////////////
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
 
     };
+    PhysicalNumber change( PhysicalNumber a,PhysicalNumber b);
     istream& operator >> (istream & is,PhysicalNumber& f);
     ostream& operator<<(ostream & os,const PhysicalNumber& f);
 
