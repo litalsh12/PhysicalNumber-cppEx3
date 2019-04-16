@@ -69,23 +69,23 @@ int main() {
     .CHECK_OUTPUT(km-m, "6.5[km]")
     .CHECK_OUTPUT(km+km , "14[km]")
     .CHECK_OUTPUT((m-=km), "-6500[m]")
-    .CHECK_OUTPUT((km+=m) , "7.5[km]")
+    .CHECK_OUTPUT((km+=m) , "0.5[km]")
     .CHECK_OUTPUT(++cm , "21[cm]")
-    .CHECK_OUTPUT(--km , "6.5[km]")
+    .CHECK_OUTPUT(--km , "-0.5[km]")
  
     .CHECK_EQUAL (m==km, false)
     .CHECK_EQUAL (cm==cm , true)
     .CHECK_EQUAL (km!=cm , true)
-    .CHECK_EQUAL (km!=km , true)
+    .CHECK_EQUAL (km!=km , false)
     .CHECK_EQUAL (m<km, true)
-    .CHECK_EQUAL (m<cm , false)
-    .CHECK_EQUAL (m>cm , true)
+    .CHECK_EQUAL (m<cm , true)
+    .CHECK_EQUAL (m>cm , false)
     .CHECK_EQUAL (m>km, false)
     .CHECK_EQUAL (m<=m , true)
-    .CHECK_EQUAL (m<=hour , true)
-    .CHECK_EQUAL (m<=cm , false)
+    .CHECK_EQUAL (m<=km , true)
+    .CHECK_EQUAL (m<=cm , true)
     .CHECK_EQUAL (m>=m , true)
-    .CHECK_EQUAL (m>=cm ,true)
+    .CHECK_EQUAL (m>=cm ,false)
     .CHECK_EQUAL (m>=km , false)
 
 
@@ -93,13 +93,13 @@ int main() {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   //time units-
-    .CHECK_OUTPUT(hour+min, "1.45[Hour]")
-    .CHECK_OUTPUT((min+=sec), "51[Min]")
-    .CHECK_OUTPUT(min, "51[Min]")
-    .CHECK_OUTPUT(min-sec, "45[Min]")
-    .CHECK_OUTPUT((min-=sec) , "45[Min]")
-    .CHECK_OUTPUT(--min, "44[Min]")
-    .CHECK_OUTPUT(++hour, "2[Hour]")    
+    .CHECK_OUTPUT(hour+min, "1.45[hour]")
+    .CHECK_OUTPUT((min+=sec), "51[min]")
+    .CHECK_OUTPUT(min, "51[min]")
+    .CHECK_OUTPUT(min-sec, "45[min]")
+    .CHECK_OUTPUT((min-=sec) , "45[min]")
+    .CHECK_OUTPUT(--min, "44[min]")
+    .CHECK_OUTPUT(++hour, "2[hour]")    
 
     .CHECK_EQUAL (min<hour, true)
     .CHECK_EQUAL (hour<sec ,false)
@@ -113,7 +113,7 @@ int main() {
     .CHECK_EQUAL(min>=hour , false)
     .CHECK_EQUAL(sec==sec , true)
     .CHECK_EQUAL(sec==min , false)
-    .CHECK_EQUAL(hour!=hour , true)
+    .CHECK_EQUAL(hour!=hour , false)
     .CHECK_EQUAL (hour!=min, true)
  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     
@@ -147,7 +147,7 @@ int main() {
 //stream
 
     .CHECK_OK (istringstream("9[kg]") >> kg)
-    .CHECK_OK (istringstream("44[Min]") >> min)
+    .CHECK_OK (istringstream("44[nin]") >> min)
     .CHECK_OK (istringstream("21[cm]") >> cm)
 
 
